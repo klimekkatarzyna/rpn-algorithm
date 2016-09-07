@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+      </head>
+
+    <body>
+    </body>
+
+    <script>
+    // RPN calculation algorithm
+      let stack = [];
+      let str = '12 2 3 4 * 10 5 / + * +';
+      str = str.split(" ");
+
+      let output = [];
+      let currentOp = [];
+
+      let num = 0;
+      let string;
+      for (let i in str) {
+         num = parseInt(str[i]);
+
+        if (isNaN(num)) {
+            string = num.toString();
+
+        stack.push(str[i]);
+        console.log("stack array: ", stack);
+
+        if (str.length > 0 ) {
+
+          if (isNaN(str[i])) {
+              output.push(stack.pop());
+              console.log("actual output: ", output);
+
+              currentOp = [];
+
+                for( let i = 0; i < 3; i++) {
+                  currentOp.push(output.pop());
+                  this.popped = currentOp.reverse();
+
+                    let x = currentOp[0];
+                    let y = currentOp[2];
+                    this.result = 0;
+                    if (currentOp[1] === "*") {result = x * y}
+                    else if (currentOp[1] === "/")  {result = x / y}
+                    else if (currentOp[1] === "-")  {result = x - y}
+                    else if (currentOp[1] === "+")  {result = x + y}
+                }
+
+                output.push(result);
+
+                console.log("result: ", result);
+                console.log("current operation: ", popped);
+                console.log("actual array: ", output);
+          }
+        }
+
+        }
+
+        else {
+            output.push(num);
+            console.log("ouput array: ", output);
+        }
+
+      }
+    </script>
+
+</html>
